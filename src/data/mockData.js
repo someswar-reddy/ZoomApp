@@ -41,14 +41,27 @@ export const restaurants = [
     },
     {
       id: 9,
-      name: "Steakhouse Supreme",
-      image: "https://images.pexels.com/photos/3756523/pexels-photo-3756523.jpeg",
+      name: "Halwa",
+      image: "https://www.kamalascorner.com/wp-content/uploads/2007/11/Halwa.jpg",
     },
     {
       id: 10,
-      name: "Deli Express",
-      image: "https://images.pexels.com/photos/327159/pexels-photo-327159.jpeg",
+      name: "Chicken rolls",
+      image: "https://butfirstchai.com/wp-content/uploads/2023/03/chicken-tikka-skewers-recipe.jpg",
     },
+    
+    {
+      id: 11,
+      name: "Wines",
+      image: "https://images.ctfassets.net/rxqefefl3t5b/2Wql3kKuliWgtXzePIDuYA/2e26e4e4145aaedccd3eb02ec513f8cc/Perez_Cruz_05.jpg?fl=progressive&q=80",
+    },
+    {
+      id: 12,
+      name: "Vegetables",
+      image: "https://cdn.britannica.com/17/196817-159-9E487F15/vegetables.jpg",
+    },
+
+
   ];
   
   export const products = {

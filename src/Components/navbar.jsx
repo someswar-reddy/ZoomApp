@@ -11,7 +11,7 @@ const navbar = () => {
         paddingLeft:'10px'
     }}>
       <div>
-      <h1>Zoom App</h1>
+      <h1>Somu App</h1>
       </div>
       <div>
       <h1>Login</h1>

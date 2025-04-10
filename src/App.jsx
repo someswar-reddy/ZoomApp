@@ -2,16 +2,14 @@ import React from 'react'
 import "./App.css"
 import Navbar from './Components/navbar'
 
-
-
 import {Routes, Route, BrowserRouter, } from "react-router-dom";
-import Home from './pages/Home'
+import Home from './pages/home'
 import Product from './pages/product'
 import Cart from './pages/cart'
 
 const App = () => {
-  return (
-
+  return (    
+    
     <BrowserRouter>
      <Navbar/>
      
@@ -24,6 +22,7 @@ const App = () => {
      </Routes>
      
     </BrowserRouter>
+   
   )
 }
 
