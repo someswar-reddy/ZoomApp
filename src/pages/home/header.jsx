@@ -1,6 +1,6 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+
 const Header = () => {
   return (
     <div>
@@ -33,18 +33,20 @@ const Header = () => {
         <h6>Your Favourite Restaurant in one place</h6>
       </div>
     </div>
+
     <div>
-    <Box 
-      component="form"
-      sx={{ display:"flex", justifyContent: "center", alignItems: "center", marginBottom: 2 }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      
-    </Box>
+    <h1 style={{color: "red", textAlign: "center" }}> Find Your Nearest Restaurants</h1>
+    <h1 style={{ display: "flex", justifyContent: "center" }}>
+    <TextField
+      id="outlined-basic"
+      label="Search Restaurants"
+      variant="outlined"
+      sx={{ width: '700px' }}/>
+      </h1>
+  </div>
     
-    </div>
+    
+    
 
 
     </div>
