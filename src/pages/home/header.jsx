@@ -30,7 +30,7 @@ const Header = () => {
         }}
       >
         <h5>Welcome to My Ecommerce</h5>
-        <h6>Your Favourite Restaurant in one place</h6>
+        <h6>Your Favourite Restaurant in one place   </h6>
       </div>
     </div>
 
