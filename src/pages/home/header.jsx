@@ -1,5 +1,5 @@
 import React from "react";
-import TextField from '@mui/material/TextField';
+
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
         alt="Delicious Food"
         style={{
           width: "100%",
-          maxHeight: "400px",
+          maxHeight: "500px",
           objectFit: "cover",
           borderBottom: "5px solid #eb4034",
           display: "block",
@@ -33,20 +33,6 @@ const Header = () => {
         <h6>Your Favourite Restaurant in one place   </h6>
       </div>
     </div>
-
-    <div>
-    <h1 style={{color: "red", textAlign: "center" }}> Find Your Nearest Restaurants</h1>
-    <h1 style={{ display: "flex", justifyContent: "center" }}>
-    <TextField
-      id="outlined-basic"
-      label="Search Restaurants"
-      variant="outlined"
-      sx={{ width: '700px' }}/>
-      </h1>
-  </div>
-    
-    
-    
 
 
     </div>
