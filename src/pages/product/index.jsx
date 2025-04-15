@@ -1,12 +1,65 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Grid, Box } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { useNavigate, useParams } from "react-router-dom";
+import { products } from "../../data/mockData";
 
 const index = () => {
-  const navigate = useNavigate()
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const items = products[id] || [];
+
+  const handleAddToCart = (item) => {
+    alert("please login to add items to cart");
+  }
   return (
     <div>
-      <button onClick={()=>navigate(-1)}>back</button>
+      <button onClick={() => navigate(-1)}>Back To Home</button>
       <h1>products</h1>
+      {/* section for cards */}
+      <Box sx={{ paddingLeft: 12, paddingRight: 12 }}>
+        <Grid container spacing={1}>
+          {items.length > 0 ? (
+            items.map((item, index) => {
+              return (
+                <Grid key={item.id} size={{ sm: 12, md: 3 }}>
+                  <Card sx={{ margin: 2 }}>
+                    <CardMedia
+                      sx={{ height: 140 }}
+                      image={item.image}
+                      title="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {item.name}
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        sx={{
+                          backgroundColor: "rgb(235, 64, 52)",
+                          color: "white",
+                        }}
+                        size="small"
+                        onClick={() => handleAddToCart()}
+                      >
+                        Add to cart
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              );
+            })
+          ) : (
+            <h1>no data</h1>
+          )}
+        </Grid>
+      </Box>
     </div>
   );
 };
