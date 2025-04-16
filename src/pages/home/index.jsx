@@ -17,6 +17,7 @@ const index = () => {
 
   const handleNavigate = (id) => {
     navigate(`/product/${id}`);
+    console.log(id);
   };
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const index = () => {
                   </CardContent>
                   <CardActions>
                     <Button
-                      onClick={() => handleNavigate()}
+                      onClick={() => handleNavigate(item.id)}
                       sx={{
                         backgroundColor: "rgb(235, 64, 52)",
                         color: "white",

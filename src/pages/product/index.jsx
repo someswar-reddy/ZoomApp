@@ -8,15 +8,26 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../data/mockData";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { useSnackbar } from "notistack";
 const index = () => {
   const { id } = useParams();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const items = products[id] || [];
-
+  const { isAuthenticated } = useAuth0();
   const handleAddToCart = (item) => {
-    alert("please login to add items to cart");
-  }
+    if (isAuthenticated) {
+      //alert("Added to cart")
+      enqueueSnackbar(`added to cart ${item.name}`, {
+      variant: "success",
+    });
+  }else {
+      enqueueSnackbar("Please login to add items to cart", {
+        variant: "error",
+      });
+    }
+  };
   return (
     <div>
       <button onClick={() => navigate(-1)}>Back To Home</button>
@@ -46,7 +57,7 @@ const index = () => {
                           color: "white",
                         }}
                         size="small"
-                        onClick={() => handleAddToCart()}
+                        onClick={() => handleAddToCart(item)}
                       >
                         Add to cart
                       </Button>
