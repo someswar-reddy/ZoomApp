@@ -7,9 +7,12 @@ import Home from "./pages/home";
 import Product from "./pages/product";
 import Cart from "./pages/cart";
 import { SnackbarProvider } from "notistack";
+import { StoreProvider } from "./utils/store";
+
 const App = () => {
   return (
     <BrowserRouter>
+    <StoreProvider>
       <SnackbarProvider>
         <Navbar />
 
@@ -17,8 +20,11 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
+          
         </Routes>
+        
       </SnackbarProvider>
+      </StoreProvider>
     </BrowserRouter>
   );
 };

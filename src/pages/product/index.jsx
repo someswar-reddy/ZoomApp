@@ -10,19 +10,26 @@ import { useNavigate, useParams } from "react-router-dom";
 import { products } from "../../data/mockData";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useSnackbar } from "notistack";
+import { Store } from "../../utils/store";
+import { useContext } from "react";
+
 const index = () => {
   const { id } = useParams();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const navigate = useNavigate();
+  const { cart, setCart } = useContext(Store);
   const items = products[id] || [];
   const { isAuthenticated } = useAuth0();
   const handleAddToCart = (item) => {
     if (isAuthenticated) {
       //alert("Added to cart")
+      setCart((prevCart) => {
+        return [...prevCart, { ...item, quantity: 1 }];
+      });
       enqueueSnackbar(`added to cart ${item.name}`, {
-      variant: "success",
-    });
-  }else {
+        variant: "success",
+      });
+    } else {
       enqueueSnackbar("Please login to add items to cart", {
         variant: "error",
       });

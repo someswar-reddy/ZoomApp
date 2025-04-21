@@ -2,10 +2,20 @@ import { Button, Icon, IconButton, Badge } from "@mui/material";
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { Store } from "../utils/store";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 const navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   console.log(user);
+  const navigate = useNavigate();
+  const { cart, setCart } = useContext(Store);
+
   console.log(isAuthenticated);
+  const handleNavigate = () => {
+    navigate("/cart");
+    
+  };
   return (
     <div
       style={{
@@ -45,8 +55,8 @@ const navbar = () => {
         )}
 
         {isAuthenticated ? (
-          <IconButton>
-            <Badge badgeContent={4} color="secondary">
+          <IconButton onClick={() => handleNavigate()}>
+            <Badge badgeContent={cart.length} color="secondary">
               <ShoppingCartIcon sx={{ color: "white" }} />
             </Badge>
           </IconButton>
