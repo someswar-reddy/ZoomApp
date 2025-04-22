@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./Components/navbar";
-
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Routes, Route, BrowserRouter,Navigate } from "react-router-dom";
 import Home from "./pages/home";
 import Product from "./pages/product";
 import Cart from "./pages/cart";
@@ -10,7 +10,12 @@ import { SnackbarProvider } from "notistack";
 import { StoreProvider } from "./utils/store";
 
 const App = () => {
+  //const {isAuthenticated } = useAuth0();
+const isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  console.log(isAuthenticated);
   return (
+
     <BrowserRouter>
     <StoreProvider>
       <SnackbarProvider>
@@ -19,7 +24,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={
+            isAuthenticated ? <Cart/>: <Navigate to="/" />
+          } />
           
         </Routes>
         
