@@ -6,7 +6,6 @@ import { Store } from "../utils/store";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   console.log(user);
@@ -16,16 +15,15 @@ const navbar = () => {
   console.log(isAuthenticated);
   const handleNavigate = () => {
     navigate("/cart");
-    
   };
   const handleLogin = () => {
     loginWithRedirect();
     localStorage.setItem("isAuthenticated", true);
-  }
+  };
   const handleLogout = () => {
     logout({ returnTo: window.location.origin });
     localStorage.removeItem("isAuthenticated");
-  }
+  };
   const totalitems = cart.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <div
@@ -51,12 +49,7 @@ const navbar = () => {
         }}
       >
         {isAuthenticated ? (
-          <Button
-            onClick={() =>
-              handleLogout()
-            }
-            variant="contained"
-          >
+          <Button onClick={() => handleLogout()} variant="contained">
             Logout
           </Button>
         ) : (
@@ -76,7 +69,7 @@ const navbar = () => {
         )}
       </div>
     </div>
-  );
+  );  
 };
 
 export default navbar;

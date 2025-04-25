@@ -105,6 +105,9 @@ const MenuPage = () => {
                     </Typography>
                   </CardContent>
                   <CardActions>
+                  <Typography>
+                //  {item.Price}/- each
+                  </Typography>
                     {cart.some((cartItem) => cartItem.id === item.id) ? (
                       <>
                         <Button
