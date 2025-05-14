@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { Store } from "../../utils/store";
 import { useSnackbar } from "notistack";
+import PaymentButton from "../../Components/Button";
 
 const CartPage = () => {
   const { cart, setCart } = useContext(Store);
@@ -45,6 +46,10 @@ const CartPage = () => {
     enqueueSnackbar("Item removed from cart", { variant: "error" });
   };
 
+  const handleTotal= () => {
+    const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return total;
+  }
   return (
     <div>
       <Typography
@@ -78,6 +83,11 @@ const CartPage = () => {
                       {item.name}
                     </Typography>
                   </CardContent>
+                  <Typography>
+                 {item.price}/each
+                  
+                  
+                  </Typography>
                   <CardActions>
                     <Button
                       size="small"
@@ -126,6 +136,7 @@ const CartPage = () => {
           )}
         </Grid>
       </Box>
+      <PaymentButton handleTotal={handleTotal}/>
     </div>
   );
 };
